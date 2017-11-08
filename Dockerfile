@@ -1,6 +1,5 @@
-# Standalone antiSMASH build
-# VERSION 0.0.5
 FROM antismash/standalone-lite:4.0.0
+
 MAINTAINER cheng gong <512543469@qq.com>
 
 ENV ANTISMASH_URL="https://dl.secondarymetabolites.org/releases"
@@ -12,9 +11,7 @@ WORKDIR /antismash-${ANTISMASH_VERSION}
 
 ADD instance.cfg antismash/config/instance.cfg
 
-#VOLUME ["/input", "/output"]
-#WORKDIR /output
+ENV PATH /antismash-${ANTISMASH_VERSION}:$PATH
 
-#ENTRYPOINT ["/usr/local/bin/run"]
-
+ENTRYPOINT []
 CMD ["/bin/bash"]
